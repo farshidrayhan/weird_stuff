@@ -29,7 +29,8 @@ while True:
     for (x, y, w, h) in faces:
 
         i += 1
-        img_name = 'img ', str(i) , '.png'
+        img_name = 'img'+ str(i) + '.png'
+        print(img_name)
 
         cv2.rectangle(img, (x, y), (x + w, y + h), (255, 0, 0), 2)
         resized_image = cv2.resize(img, (w, h))
@@ -40,8 +41,9 @@ while True:
         roi_color = img[y:y + h, x:x + w]
 
         cv2.imshow('face Detector', roi_color)
+        resized_image = cv2.resize(roi_color, (28, 28))
 
-        cv2.imwrite(str(img_name), roi_color)
+        cv2.imwrite('labeled_images/'+img_name, resized_image)
         #
         eyes = left_eye_cascade.detectMultiScale(roi_gray, 1.6, 1)
 
