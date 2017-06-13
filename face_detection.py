@@ -43,7 +43,7 @@ while True:
         cv2.imshow('face Detector', roi_color)
         resized_image = cv2.resize(roi_color, (28, 28))
 
-        cv2.imwrite('labeled_images/'+img_name, resized_image)
+        # cv2.imwrite('labeled_images/'+img_name, resized_image)
         #
         eyes = left_eye_cascade.detectMultiScale(roi_gray, 1.6, 1)
 
